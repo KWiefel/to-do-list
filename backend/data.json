@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "name": "Weekly Grocery Shopping List",
+    "items": [
+      {
+        "itemId": 1,
+        "description": "Eggs",
+        "checked": true
+      },
+      {
+        "itemId": 2,
+        "description": "Milk",
+        "checked": false
+      },
+      {
+        "itemId": 3,
+        "description": "Cheese",
+        "checked": false
+      },
+      {
+        "id": 4,
+        "description": "Avocado",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Weekend Hiking Trip",
+    "items": [
+      {
+        "itemId": 1,
+        "description": "Blasenpflaster",
+        "checked": false
+      },
+      {
+        "itemId": 2,
+        "description": "Wanderstock",
+        "checked": false
+      },
+      {
+        "itemId": 3,
+        "description": "Wasser",
+        "checked": false
+      },
+      {
+        "itemId": 4,
+        "description": "Fernglas",
+        "checked": false
+      },
+      {
+        "itemId": 5,
+        "description": "Lunchbox",
+        "checked": false
+      },
+      {
+        "itemId": 6,
+        "description": "Socken ersatz",
+        "checked": false
+      }
+    ]
+  }
+]

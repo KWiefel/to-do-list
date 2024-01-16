@@ -1,0 +1,92 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.logo-h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.checklist-card {
+  padding: 16px;
+  border: 3px solid #646cffaa;
+  border-radius: 6px;
+  min-width: 100px;
+  cursor: pointer;
+}
+
+.checklist-card:hover {
+  background-color: #646cffaa;
+  color: azure;
+}
+
+.checklist-card-list-view {
+  display: flex;
+  gap: 16px;
+}
+
+.list-item-wrapper {
+  list-style: none;
+  font-size: larger;
+  border-bottom: 1px dashed #222;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-item:hover {
+  background-color: lightblue;
+}
+.list-item {
+  width: 100%;
+  padding: 16px;
+  cursor: pointer;
+}
+.list-item-checked {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.list-item-delete {
+  cursor: pointer;
+}
