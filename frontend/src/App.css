@@ -42,9 +42,15 @@
 }
 
 .logo-h1 {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-style: italic;
-  font-weight: 700;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.logo-underline {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  padding: 1em;
+  margin: 0;
 }
 
 .checklist-card {
@@ -60,11 +66,6 @@
   color: azure;
 }
 
-.checklist-card-list-view {
-  display: flex;
-  gap: 16px;
-}
-
 .list-item-wrapper {
   list-style: none;
   font-size: larger;
@@ -74,14 +75,16 @@
   align-items: center;
   justify-content: space-between;
 }
-.list-item:hover {
-  background-color: lightblue;
-}
+
 .list-item {
   width: 100%;
   padding: 16px;
-  cursor: pointer;
 }
+
+.list-item-check {
+  padding-right: 16px;
+}
+
 .list-item-checked {
   text-decoration: line-through;
   color: #888;
@@ -89,4 +92,19 @@
 
 .list-item-delete {
   cursor: pointer;
+}
+
+.input-text {
+  width: 100%;
+  padding: 1em;
+  margin: 8px 0;
+}
+
+.btn {
+  width: 80%;
+  margin-top: 8px;
+}
+
+.dashboard-description {
+  width: 60%;
 }

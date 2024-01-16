@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ChecklistCardList from "../components/ChecklistCardList";
+import ChecklistCard from "../components/ChecklistCard";
 
 export function Dashboard() {
   const [checklist, setChecklists] = useState([{ name: "Demo...", id: -1 }]);
@@ -15,10 +16,14 @@ export function Dashboard() {
 
   return (
     <main>
-      <h1 className="logo-h1">Checklisto</h1>
+      <h1 className="logo-h1">Your Daily To-Do´s</h1>
+      <p className="logo-underline">Just do it - now!</p>
+      <p className="dashboard-descriptio">
+        Effizientes Aufgabenmanagement beginnt mit klarer Organisation und dem
+        Bewusstsein für deine täglichen Ziele. "Your Daily To-Dos" ist mehr als
+        nur eine App; es ist dein persönlicher Assistent im Taschenformat!
+      </p>
       <ChecklistCardList checklists={checklist} />
-      {/* Add new checklist button */}
-      {/* Add new checklist form */}
     </main>
   );
 }

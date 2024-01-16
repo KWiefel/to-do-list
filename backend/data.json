@@ -1,62 +1,57 @@
 [
   {
     "id": 1,
-    "name": "Weekly Grocery Shopping List",
+    "name": "Los geht´s!",
     "items": [
       {
-        "itemId": 1,
-        "description": "Eggs",
-        "checked": true
-      },
-      {
-        "itemId": 2,
-        "description": "Milk",
-        "checked": false
-      },
-      {
         "itemId": 3,
-        "description": "Cheese",
-        "checked": false
-      },
-      {
-        "id": 4,
-        "description": "Avocado",
-        "checked": false
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "name": "Weekend Hiking Trip",
-    "items": [
-      {
-        "itemId": 1,
-        "description": "Blasenpflaster",
-        "checked": false
-      },
-      {
-        "itemId": 2,
-        "description": "Wanderstock",
-        "checked": false
-      },
-      {
-        "itemId": 3,
-        "description": "Wasser",
+        "description": "Wasser kaufen",
         "checked": false
       },
       {
         "itemId": 4,
-        "description": "Fernglas",
+        "description": "Fenster putzen",
         "checked": false
       },
       {
         "itemId": 5,
-        "description": "Lunchbox",
+        "description": "Geld abholen",
         "checked": false
       },
       {
-        "itemId": 6,
-        "description": "Socken ersatz",
+        "itemId": 7,
+        "description": "Den Hund streicheln",
+        "checked": false,
+        "id": 1
+      },
+      {
+        "itemId": 8,
+        "description": "Schuhe putzen",
+        "checked": true
+      },
+      {
+        "itemId": 10,
+        "description": "Gassi gehen",
+        "checked": true
+      },
+      {
+        "itemId": 11,
+        "description": "Shoppen gehen",
+        "checked": false
+      },
+      {
+        "itemId": 16,
+        "description": "Einkaufen",
+        "checked": true
+      },
+      {
+        "itemId": 18,
+        "description": "Hauswand streichen",
+        "checked": false
+      },
+      {
+        "itemId": 19,
+        "description": "Haus kaufen",
         "checked": false
       }
     ]

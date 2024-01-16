@@ -5,10 +5,12 @@ const { readJsonFile, writeJsonFile } = require("./fsUtils");
 const app = express();
 
 app.use(cors());
+
 app.use((req, _, next) => {
   console.log("new request", req.method, req.url);
   next();
 });
+
 app.use(express.json()); // parse body of all incoming requests
 
 // CRUD - Create, Read (All, One), Update, Delete
@@ -35,25 +37,36 @@ app.get("/api/lists/:listId", (req, res) => {
     });
 });
 
-app.post("/api/lists/:listId/items", (req, res) => {
-  const newChecklistItemDesc = req.body.itemDescription;
+// ein neues To-Do hinzufügen
+app.post("/api/lists/:listId/items/addItem", (req, res) => {
+  // hier kommt die Beschreibung meines neuen To-Do´s durch die request aus dem Frontend
+  const newChecklistItemDesc = req.body.description;
 
+  // ich lese die aktuellen To-Do´s aus und suche die korrekte Liste anhand der request aus dem Frontend
   readJsonFile("./data.json")
     .then((lists) => {
       const foundList = lists.find(
         (list) => list.id.toString() === req.params.listId
       );
+
+      // Error Handling falls meine Liste nicht gefunden wird
       if (!foundList)
         res.status(404).json({ success: false, error: "List not found" });
+
+      // ich definiere mein gesamtes Objekt weil ich über die request nur die description bekomme
       const newChecklistItem = {
-        id: foundList.items[foundList.items.length - 1].itemId + 1, // Increment last id for new item
+        itemId: foundList.items[foundList.items.length - 1].itemId + 1,
         description: newChecklistItemDesc,
         checked: false,
       };
+
+      // ich kopiere meine bestehende Liste und füge mein neues To-Do an
       const listWithNewItem = {
         ...foundList,
         items: [...foundList.items, newChecklistItem],
       };
+
+      // ich suche erneut die richtige Liste und füge die kopierte Liste mit dem neuen To-Do ein
       const newListsData = lists.map((checklist) => {
         if (checklist.id.toString() === req.params.listId) {
           return listWithNewItem;
@@ -62,9 +75,12 @@ app.post("/api/lists/:listId/items", (req, res) => {
         }
       });
 
+      // ich returne meine neue Liste als promise
       return newListsData;
     })
+    // ich nutze meine write Funktion um mit der neuen Liste die alte zu überschreiben
     .then((newListsData) => writeJsonFile("./data.json", newListsData))
+    // ich resolve die anfrage
     .then((newListsData) => {
       const updatedList = newListsData.find(
         (list) => list.id.toString() === req.params.listId
@@ -73,6 +89,7 @@ app.post("/api/lists/:listId/items", (req, res) => {
     });
 });
 
+// ein To-Do als erledigt markieren
 app.patch("/api/lists/:listId/items/:itemId/toggleChecked", (req, res) => {
   readJsonFile("./data.json")
     .then((lists) => {
@@ -128,6 +145,7 @@ app.patch("/api/lists/:listId/items/:itemId/toggleChecked", (req, res) => {
     });
 });
 
+// löschen eines To-Do´s
 app.delete("/api/lists/:listId/items/:itemId", (req, res) => {
   readJsonFile("./data.json")
     .then((lists) => {
