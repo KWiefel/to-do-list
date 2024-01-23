@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 export function Checklist() {
   const { checklistId } = useParams();
   const [checklist, setChecklist] = useState({});
-  const [newInput, setNewInput] = useState({});
+  const [newInput, setNewInput] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/lists/${checklistId}`) // default method by fetch is GET
@@ -56,7 +56,7 @@ export function Checklist() {
         if (!success) throw error;
 
         setChecklist(result);
-        setNewInput({});
+        setNewInput("");
       });
   }
 
@@ -71,8 +71,10 @@ export function Checklist() {
             type="text"
             placeholder="Füge ein neues To-Do hinzu..."
             className="input-text"
+            value={newInput}
             onChange={(e) => setNewInput(e.target.value)}
           />
+          <input type="file" name="attachment" id="attachment" />
           <button className="btn" onClick={addItem}>
             Hinzufügen
           </button>

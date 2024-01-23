@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
 const { readJsonFile, writeJsonFile } = require("./fsUtils");
 
+dotenv.config();
 const app = express();
 
 app.use(cors());
@@ -11,9 +13,16 @@ app.use((req, _, next) => {
   next();
 });
 
-app.use(express.json()); // parse body of all incoming requests
+app.use(express.json());
 
-// CRUD - Create, Read (All, One), Update, Delete
+// FILTER
+
+function hasTitle(todo, title) {
+  if (typeof title === "undefined") {
+    return true;
+  }
+  return todo.description.toLowerCase().includes(titleSearch.toLowerCase());
+}
 
 // GET All lists
 app.get("/api/lists", (_, res) => {
@@ -26,10 +35,15 @@ app.get("/api/lists", (_, res) => {
 
 // GET list By Id
 app.get("/api/lists/:listId", (req, res) => {
+  const titleSearch = req.query.titleSearch;
   readJsonFile("./data.json")
     .then((lists) =>
       lists.find((list) => list.id.toString() === req.params.listId)
     )
+    // .then((list) => {
+    //   const foundList = list.filter((todo) => hasTitle(todo, titleSearch));
+    //   res.json({ success: true, result: foundList });
+    // });
     .then((foundList) => {
       if (!foundList)
         res.status(404).json({ success: false, error: "List not found" });
@@ -195,7 +209,7 @@ app.use((_, res) => {
   });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log("Server listening on port", PORT);
 });

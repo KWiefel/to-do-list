@@ -4,11 +4,6 @@
     "name": "Los geht´s!",
     "items": [
       {
-        "itemId": 3,
-        "description": "Wasser kaufen",
-        "checked": false
-      },
-      {
         "itemId": 4,
         "description": "Fenster putzen",
         "checked": false
@@ -25,11 +20,6 @@
         "id": 1
       },
       {
-        "itemId": 8,
-        "description": "Schuhe putzen",
-        "checked": true
-      },
-      {
         "itemId": 10,
         "description": "Gassi gehen",
         "checked": true
@@ -40,18 +30,23 @@
         "checked": false
       },
       {
-        "itemId": 16,
-        "description": "Einkaufen",
-        "checked": true
-      },
-      {
-        "itemId": 18,
-        "description": "Hauswand streichen",
+        "itemId": 19,
+        "description": "Haus kaufen",
         "checked": false
       },
       {
-        "itemId": 19,
-        "description": "Haus kaufen",
+        "itemId": 20,
+        "description": "Einkaufen",
+        "checked": false
+      },
+      {
+        "itemId": 21,
+        "description": "Fegen",
+        "checked": false
+      },
+      {
+        "itemId": 22,
+        "description": "Arbeiten",
         "checked": false
       }
     ]
